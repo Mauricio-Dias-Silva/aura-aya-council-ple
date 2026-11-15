@@ -1,0 +1,29 @@
+{
+  "format": 1,
+  "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
+  "created": "2026-11-15T17:23:08Z",
+  "harness": {
+    "name": "aura-aya-omni-local",
+    "model_api": "openai-compatible/qwen2.5-3b",
+    "tree": null,
+    "files": null,
+    "commit": null,
+    "dirty": false
+  },
+  "tasks": {
+    "data-hall-mep-routing": {
+      "run": "aura-aya-omni-local-20261115-171739",
+      "trial": "data-hall-mep-routing__fuZh5QF",
+      "ended": "ok",
+      "reward": 0.0,
+      "tree": null,
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
+      "files": {
+        "app/files/dc_model__hall_seed000_d000__mep_routing/output/solution.py": "c95c1c67a2a2555d279d51bd31b3b1ffe92ff8a2"
+      },
+      "final_message": "878a54e01d1710cfff9dd014d863c9a08adcf3cf",
+      "deleted": [],
+      "skipped": []
+    }
+  }
+}
