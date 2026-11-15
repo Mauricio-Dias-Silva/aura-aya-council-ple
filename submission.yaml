@@ -1,0 +1,12 @@
+# Copyright 2026 Mauricio Dias da Silva (AURA Sovereign Engineering)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+
+name: aura-aya-council
+model_api: google-cloud/gemini-4-argon
+install: bash {src}/install.sh
+serve: /opt/harness/venv/bin/python {src}/serve.py
+env:
+  AGY_EFFORT: "high"
+
