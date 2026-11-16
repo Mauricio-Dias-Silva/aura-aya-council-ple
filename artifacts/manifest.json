@@ -1,7 +1,7 @@
 {
   "format": 1,
   "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
-  "created": "2026-11-16T12:28:05Z",
+  "created": "2026-11-16T13:00:58Z",
   "harness": {
     "name": "aura-aya-omni-local",
     "model_api": "openai-compatible/qwen2.5-3b",
@@ -26,16 +26,56 @@
       "skipped": []
     },
     "seismic-diaphragm-shear": {
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
       "run": "aura-aya-omni-local-20261116-122440",
       "trial": "seismic-diaphragm-shear__EhTSpnJ",
       "ended": "ok",
       "reward": 0.058824,
       "tree": null,
-      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
       "files": {
         "filesystem/final_batch4__structural_task6_seismic_diaphragm_shear__blind/output/submission.zip": "04363868da3f3a6e1cfc08ab1ac835313b60784f"
       },
       "final_message": "a6fe3da7c81cd6899f2e8f993193ffbf0817cc93",
+      "deleted": [],
+      "skipped": []
+    },
+    "heat-rejection-life-cycle-cost": {
+      "run": "aura-aya-omni-local-20261116-123245",
+      "trial": "heat-rejection-life-cycle-cost__EPV8xw6",
+      "ended": "ok",
+      "reward": 0.0,
+      "tree": null,
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
+      "files": {},
+      "final_message": "640c8b504ac5fe9ba2d9d8d1f18deab8e966f12e",
+      "deleted": [],
+      "skipped": []
+    },
+    "roof-deck-design": {
+      "run": "aura-aya-omni-local-20261116-123245",
+      "trial": "roof-deck-design__KfGQqUH",
+      "ended": "ok",
+      "reward": 0.0,
+      "tree": null,
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
+      "files": {
+        "filesystem/final_batch4__structural_task7_roof_deck_design__blind/output/submission.zip": "e147a3dbd9c358686440c2dbd03ba656fe3718bd"
+      },
+      "final_message": "0b9013d3635f191558b3d132e6df118635346caa",
+      "deleted": [],
+      "skipped": []
+    },
+    "wind-diaphragm-shear": {
+      "run": "aura-aya-omni-local-20261116-123245",
+      "trial": "wind-diaphragm-shear__SqgcLT9",
+      "ended": "ok",
+      "reward": 0.0,
+      "tree": null,
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
+      "files": {
+        "filesystem/final_batch4__structural_task5_wind_diaphragm_shear__blind/output/submission.zip": "fd57a96ed074702bb78fb460b802566d872fc43d"
+      },
+      "final_message": "310f01b6b796f83f433b9788cf112df17a9705ec",
       "deleted": [],
       "skipped": []
     }
