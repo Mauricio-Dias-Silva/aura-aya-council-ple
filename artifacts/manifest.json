@@ -1,7 +1,7 @@
 {
   "format": 1,
   "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
-  "created": "2026-11-16T15:49:18Z",
+  "created": "2026-11-16T16:21:16Z",
   "harness": {
     "name": "aura-aya-council",
     "model_api": "gemini/gemini-4-hydrogen",
@@ -68,8 +68,20 @@
       "skipped": []
     },
     "fire-test-validation-memo": {
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
       "run": "aura-aya-council-20261116-152606",
       "trial": "fire-test-validation-memo__5fqY72b",
+      "ended": "ok",
+      "reward": 0.0,
+      "tree": null,
+      "files": {},
+      "final_message": "623010e2032d9402a024d2b91b194eacb830e4c5",
+      "deleted": [],
+      "skipped": []
+    },
+    "landscape-sheet-revision": {
+      "run": "aura-aya-council-20261116-161010",
+      "trial": "landscape-sheet-revision__32swfhS",
       "ended": "ok",
       "reward": 0.0,
       "tree": null,
