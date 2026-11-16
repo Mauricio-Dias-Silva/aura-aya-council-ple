@@ -1,7 +1,7 @@
 {
   "format": 1,
   "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
-  "created": "2026-11-15T17:23:08Z",
+  "created": "2026-11-16T12:28:05Z",
   "harness": {
     "name": "aura-aya-omni-local",
     "model_api": "openai-compatible/qwen2.5-3b",
@@ -12,16 +12,30 @@
   },
   "tasks": {
     "data-hall-mep-routing": {
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
       "run": "aura-aya-omni-local-20261115-171739",
       "trial": "data-hall-mep-routing__fuZh5QF",
       "ended": "ok",
       "reward": 0.0,
       "tree": null,
-      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
       "files": {
         "app/files/dc_model__hall_seed000_d000__mep_routing/output/solution.py": "c95c1c67a2a2555d279d51bd31b3b1ffe92ff8a2"
       },
       "final_message": "878a54e01d1710cfff9dd014d863c9a08adcf3cf",
+      "deleted": [],
+      "skipped": []
+    },
+    "seismic-diaphragm-shear": {
+      "run": "aura-aya-omni-local-20261116-122440",
+      "trial": "seismic-diaphragm-shear__EhTSpnJ",
+      "ended": "ok",
+      "reward": 0.058824,
+      "tree": null,
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
+      "files": {
+        "filesystem/final_batch4__structural_task6_seismic_diaphragm_shear__blind/output/submission.zip": "04363868da3f3a6e1cfc08ab1ac835313b60784f"
+      },
+      "final_message": "a6fe3da7c81cd6899f2e8f993193ffbf0817cc93",
       "deleted": [],
       "skipped": []
     }
