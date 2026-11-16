@@ -135,6 +135,25 @@ TOOLS = [
             ["path", "old_text", "new_text"],
         ),
     },
+    {
+        "name": "audit_deliverables",
+        "description": (
+            "Verify deliverable files in the task container before finishing:"
+            " checks existence, non-zero size, ZIP CRC + structure (flags raw"
+            " project/input folders or missing design_record.json), JSON/Python"
+            " syntax, IFC schema (if ifcopenshell is installed), and discovers"
+            " all */output/ target directories under the workspace."
+        ),
+        "inputSchema": _schema(
+            {
+                "paths": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                },
+            },
+            ["paths"],
+        ),
+    },
 ]
 
 
@@ -385,11 +404,95 @@ def edit_file(
   return text(f"replaced {count if replace_all else 1} occurrence(s) in {path}")
 
 
+def audit_deliverables(paths: list[str]) -> list[dict[str, Any]]:
+  """Runs deterministic format, path, and schema audits inside the container.
+
+  Args:
+    paths: List of deliverable file paths to inspect.
+
+  Returns:
+    MCP text content summarizing findings and any hard-constraint errors.
+  """
+  resolved = [resolve(p) for p in paths]
+  script = f"""
+import glob, json, os, py_compile, sys, zipfile
+paths = {json.dumps(resolved)}
+workdir = {json.dumps(WORKDIR)}
+out_dirs = sorted(set(glob.glob(os.path.join(workdir, '*', 'output')) + glob.glob(os.path.join(workdir, 'output'))))
+print('DISCOVERED_OUTPUT_DIRS:', out_dirs)
+errors = 0
+for p in paths:
+    if not os.path.exists(p):
+        print(f'ERROR MISSING: {{p}}')
+        errors += 1
+        continue
+    sz = os.path.getsize(p)
+    print(f'OK EXISTS: {{p}} ({{sz}} bytes)')
+    if sz == 0:
+        print(f'ERROR EMPTY: {{p}}')
+        errors += 1
+        continue
+    low = p.lower()
+    if low.endswith('.zip'):
+        try:
+            with zipfile.ZipFile(p, 'r') as z:
+                bad = z.testzip()
+                if bad:
+                    print(f'ERROR ZIP_CRC: {{bad}} in {{p}}')
+                    errors += 1
+                names = z.namelist()
+                print(f'ZIP_ENTRIES ({{len(names)}}):', names[:25])
+                if any(n.startswith(('project/', 'input/')) for n in names):
+                    print(f'ERROR RAW_INPUT_IN_ZIP: {{p}} contains raw project/ or input/ directory!')
+                    errors += 1
+                if 'design_record.json' in names:
+                    try:
+                        json.loads(z.read('design_record.json'))
+                        print('OK ZIP design_record.json valid JSON')
+                    except Exception as je:
+                        print(f'ERROR ZIP design_record.json invalid JSON: {{je}}')
+                        errors += 1
+        except Exception as e:
+            print(f'ERROR ZIP_OPEN: {{p}}: {{e}}')
+            errors += 1
+    elif low.endswith('.json'):
+        try:
+            json.load(open(p, encoding='utf-8'))
+            print(f'OK JSON: {{p}}')
+        except Exception as e:
+            print(f'ERROR JSON: {{p}}: {{e}}')
+            errors += 1
+    elif low.endswith('.py'):
+        try:
+            py_compile.compile(p, doraise=True)
+            print(f'OK PY_SYNTAX: {{p}}')
+        except Exception as e:
+            print(f'ERROR PY_SYNTAX: {{p}}: {{e}}')
+            errors += 1
+    elif low.endswith('.ifc'):
+        try:
+            import ifcopenshell
+            m = ifcopenshell.open(p)
+            print(f'OK IFC: {{p}} ({{len(list(m))}} entities)')
+        except ImportError:
+            print(f'NOTE IFC: ifcopenshell not installed, skipped schema open for {{p}}')
+        except Exception as e:
+            print(f'ERROR IFC: {{p}}: {{e}}')
+            errors += 1
+sys.exit(1 if errors else 0)
+"""
+  r = relay("exec", command=f"python3 - <<'PY'\n{script}\nPY")
+  out = (r.get("output") or "").rstrip()
+  code = r.get("exit_code", 0)
+  return text(clip(f"audit_exit={code}\n{out}" if out else f"audit_exit={code}"))
+
+
 HANDLERS = {
     "shell": shell,
     "read_file": read_file,
     "write_file": write_file,
     "edit_file": edit_file,
+    "audit_deliverables": audit_deliverables,
 }
 _out = threading.Lock()
 
