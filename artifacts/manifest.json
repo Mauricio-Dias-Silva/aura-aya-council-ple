@@ -1,10 +1,10 @@
 {
   "format": 1,
   "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
-  "created": "2026-11-16T13:00:58Z",
+  "created": "2026-11-16T15:49:18Z",
   "harness": {
-    "name": "aura-aya-omni-local",
-    "model_api": "openai-compatible/qwen2.5-3b",
+    "name": "aura-aya-council",
+    "model_api": "gemini/gemini-4-hydrogen",
     "tree": null,
     "files": null,
     "commit": null,
@@ -39,25 +39,13 @@
       "deleted": [],
       "skipped": []
     },
-    "heat-rejection-life-cycle-cost": {
-      "run": "aura-aya-omni-local-20261116-123245",
-      "trial": "heat-rejection-life-cycle-cost__EPV8xw6",
-      "ended": "ok",
-      "reward": 0.0,
-      "tree": null,
-      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
-      "files": {},
-      "final_message": "640c8b504ac5fe9ba2d9d8d1f18deab8e966f12e",
-      "deleted": [],
-      "skipped": []
-    },
     "roof-deck-design": {
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
       "run": "aura-aya-omni-local-20261116-123245",
       "trial": "roof-deck-design__KfGQqUH",
       "ended": "ok",
       "reward": 0.0,
       "tree": null,
-      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
       "files": {
         "filesystem/final_batch4__structural_task7_roof_deck_design__blind/output/submission.zip": "e147a3dbd9c358686440c2dbd03ba656fe3718bd"
       },
@@ -66,16 +54,28 @@
       "skipped": []
     },
     "wind-diaphragm-shear": {
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
       "run": "aura-aya-omni-local-20261116-123245",
       "trial": "wind-diaphragm-shear__SqgcLT9",
       "ended": "ok",
       "reward": 0.0,
       "tree": null,
-      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
       "files": {
         "filesystem/final_batch4__structural_task5_wind_diaphragm_shear__blind/output/submission.zip": "fd57a96ed074702bb78fb460b802566d872fc43d"
       },
       "final_message": "310f01b6b796f83f433b9788cf112df17a9705ec",
+      "deleted": [],
+      "skipped": []
+    },
+    "fire-test-validation-memo": {
+      "run": "aura-aya-council-20261116-152606",
+      "trial": "fire-test-validation-memo__5fqY72b",
+      "ended": "ok",
+      "reward": 0.0,
+      "tree": null,
+      "dev_set": "85ad6d96fbf76ee64d9fb6339b3bf342b07128a2ebadc0a10f008c95dac01a48",
+      "files": {},
+      "final_message": "623010e2032d9402a024d2b91b194eacb830e4c5",
       "deleted": [],
       "skipped": []
     }
