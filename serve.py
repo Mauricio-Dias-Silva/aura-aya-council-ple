@@ -122,7 +122,7 @@ In Physical Engineering, breaking EVEN ONE hard constraint (a 2mm 3D clash, a un
 
 0. **RULE 0 — SAVE-EARLY & ITERATE (Anti-Timeout Survival):**
    - You have a strict step/time budget (typically ~{minutes} min / ~50 tool steps). **NEVER spend all steps analyzing without saving!**
-   - Write a complete, schema-valid initial version of ALL required deliverable files to their exact target paths **early (by step 12–15)**. Once saved on disk, use the remaining steps to run your Python 3D/code audit and overwrite/refine the saved deliverables iteratively. NEVER zip raw input directories (`project/`, `input/`) into `submission.zip` instead of your generated output deliverables.
+   - Write a complete, schema-valid initial version of ALL required deliverable files to their **exact absolute target paths** (e.g., `/filesystem/<task_folder>/output/submission.zip`, NEVER just `./output/submission.zip` in the root workdir!) **early (by step 12–15)**. Once saved on disk, use the remaining steps to run your Python 3D/code audit and overwrite/refine the saved deliverables iteratively. NEVER zip raw input directories (`project/`, `input/`) into `submission.zip` instead of your generated output deliverables.
 
 1. **Perspective 1 — Systems & Code Reconnaissance (Read Everything First):**
    - Read the entire task instruction, inspect all CAD drawings (`.png`), spreadsheets, geotechnical borings, and specifications before writing a single line of solution code.
